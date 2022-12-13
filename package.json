@@ -6,14 +6,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.1",
     "@heroicons/react": "^2.0.13",
     "@tailwindcss/line-clamp": "^0.4.2",
     "global": "^4.4.0",
+    "graphql": "^16.6.0",
     "next": "latest",
     "next-auth": "^4.17.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "stepzen": "^0.24.0"
+    "react-hook-form": "^7.40.0",
+    "react-hot-toast": "^2.4.0"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
