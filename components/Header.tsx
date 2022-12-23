@@ -16,24 +16,30 @@ import {
 } from "@heroicons/react/24/outline";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Router, useRouter } from "next/router";
+import Link from "next/link";
 
 function Header() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
   return (
-    <div className="flex p-2  bg-white shadow-md sticky top-0 z-50 space-x-3">
+    <div
+      className="flex p-2  bg-white shadow-md sticky top-0 z-50
+    items-center space-x-3"
+    >
       {/* Logo */}
       <div
         className="relative h-10 w-20 flex-shrink-0 cursor-pointer
    mr-2 "
       >
-        <Image
-          alt=""
-          objectFit="contain"
-          src="https://logos-world.net/imageup/Reddit/Reddit-Logo-PNG5.png"
-          layout="fill"
-        />
+        <Link href="/">
+          <Image
+            alt=""
+            objectFit="contain"
+            src="https://logos-world.net/imageup/Reddit/Reddit-Logo-PNG5.png"
+            layout="fill"
+          />
+        </Link>
       </div>
       {/* Home */}
       <div className="flex items-center space-x-3 px-5">
