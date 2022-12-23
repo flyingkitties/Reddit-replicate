@@ -21,12 +21,12 @@ type Props = {
 function Post({ post }: Props) {
   if (!post)
     return (
-      <div className="flex w-full items-center justify-center p-10 text-xl">
+      <div className="flex w-full items-center p-10 justify-center txt-xl ">
         <Jelly size={50} color="#FF4501" />
       </div>
     );
   return (
-    <Link href={`/post/${post.id}`}>
+    <Link href={`/post/${post?.id}`}>
       <div
         className=" flex bg-white cursor-pointer border border-gray-300 
      my-2 shadow-sm rounded-md hover:border hover:border-gray-400 py-3 w-full "

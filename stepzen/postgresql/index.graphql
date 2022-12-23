@@ -131,8 +131,7 @@ type Query {
     @dbquery(
       type: "postgresql"
       query: """
-      select * from "post"
-      where "post"."id" = $1
+      select * from "post" where "post"."id" = $1
       """
       configuration: "postgresql_config"
     )
