@@ -110,13 +110,13 @@ type Query {
     )
 
   " Queries for type 'Post' "
-  getPost(id: ID!): Post
-    @dbquery(
-      type: "postgresql"
-      schema: "public"
-      table: "post"
-      configuration: "postgresql_config"
-    )
+  # getPost(id: ID!): Post
+  #   @dbquery(
+  #     type: "postgresql"
+  #     schema: "public"
+  #     table: "post"
+  #     configuration: "postgresql_config"
+  #   )
   getPostList: [Post]
     @dbquery(
       type: "postgresql"
@@ -127,11 +127,12 @@ type Query {
       configuration: "postgresql_config"
     )
 
-  getPostListByPostId(post_id: ID!): Post
+  getPostByPostId(post_id: ID!): Post
     @dbquery(
       type: "postgresql"
       query: """
-      select * from "post" where "post"."id" = $1
+      select * from "post"
+      where "post"."id" = $1
       """
       configuration: "postgresql_config"
     )
