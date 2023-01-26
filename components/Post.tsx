@@ -61,14 +61,15 @@ function Post({ post }: Props) {
       },
     });
 
-    console.log("New vote:", newVote);
+    console.log("New vote:", newVote); // desctructured data
 
-    console.log("Placed vote:", data);
+    console.log("Placed vote:", data); // structured data
   };
 
   useEffect(() => {
     const votes: Vote[] = data?.getVoteByPostId;
-
+    //latest vote as we sorted it by newely created
+    // The problem is here
     const vote = votes?.find(
       (vote) => vote.username == session?.user?.name
     )?.upvote;
