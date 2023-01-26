@@ -25,12 +25,12 @@ type Post {
       query: "getSubredditListById"
       arguments: [{ name: "id", field: "subreddit_id" }]
     )
-  vote: [Vote]
+  votes: [Vote]
     @materializer(
       query: "getVoteByPostId"
       arguments: [{ name: "post_id", field: "id" }]
     )
-  comment: [Comment]
+  comments: [Comment]
     @materializer(
       query: "getCommentByPostId"
       arguments: [{ name: "post_id", field: "id" }]
@@ -265,20 +265,21 @@ type Query {
       """
       configuration: "postgresql_config"
     )
-  # getVoteUsingVote_post_id_fkey(id: ID!): [Vote]
-  #   @dbquery(
-  #     type: "postgresql"
-  #     schema: "public"
-  #     query: """
-  #     SELECT "created_at", "id", "post-id" as "post_id", "upvote", "username" FROM "vote" WHERE "post-id" = $1
-  #     """
-  #     configuration: "postgresql_config"
-  #   )
+  getVoteUsingVote_post_id_fkey(id: ID!): [Vote]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      query: """
+      SELECT "created_at", "id", "post-id" as "post_id", "upvote", "username" FROM "vote" WHERE "post-id" = $1
+      """
+      configuration: "postgresql_config"
+    )
   getVoteByPostId(post_id: ID!): [Vote]
     @dbquery(
       type: "postgresql"
       query: """
-      SELECT * FROM "vote" WHERE "post_id" = $1 order by "created_at" desc
+      SELECT * FROM "vote" WHERE "post_id" = $1
+      order by "created_at" desc
       """
       configuration: "postgresql_config"
     )
@@ -298,12 +299,7 @@ type Mutation {
       dml: DELETE
       configuration: "postgresql_config"
     )
-  insertComment(
-    username: String
-    post_id: ID
-    text: String
-    created_at: DateTime
-  ): Comment
+  insertComment(post_id: ID!, username: String!, text: String!): Comment
     @dbquery(
       type: "postgresql"
       schema: "public"
@@ -422,12 +418,7 @@ type Mutation {
       dml: DELETE
       configuration: "postgresql_config"
     )
-  insertVote(
-    post_id: ID
-    username: String
-    created_at: DateTime
-    upvote: Boolean
-  ): Vote
+  insertVote(post_id: ID!, username: String!, upvote: Boolean!): Vote
     @dbquery(
       type: "postgresql"
       schema: "public"

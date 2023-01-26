@@ -1,5 +1,17 @@
 import { gql, useQuery } from "@apollo/client";
 
+export const GET_ALL_VOTES_BY_POST_ID = gql`
+  query MyQuery($post_id: ID!) {
+    getVoteByPostId(post_id: $post_id) {
+      created_at
+      id
+      post_id
+      upvote
+      username
+    }
+  }
+`;
+
 export const GET_POST_BY_POST_ID = gql`
   query MyQuery($post_id: ID!) {
     getPostByPostId(post_id: $post_id) {
@@ -22,13 +34,14 @@ export const GET_POST_BY_POST_ID = gql`
         id
         topic
       }
-      #   vote {
-      #     created_at
-      #     id
-      #     post_id
-      #     upvote
-      #     username
-      #   }
+      vote {
+        created_at
+        id
+        post_id
+        upvote
+        username
+        # delays posts loading time - error
+      }
     }
   }
 `;
@@ -55,13 +68,14 @@ export const GET_ALL_POSTS = gql`
         id
         topic
       }
-      #   vote {
-      #     created_at
-      #     id
-      #     post_id
-      #     upvote
-      #     username
-      #   }
+      vote {
+        created_at
+        id
+        post_id
+        upvote
+        username
+        # gives error on main page, doesnt display any post
+      }
     }
   }
 `;
@@ -88,13 +102,13 @@ export const GET_ALL_POSTS_BY_TOPIC = gql`
         id
         topic
       }
-      #   vote {
-      #     created_at
-      #     id
-      #     post_id
-      #     upvote
-      #     username
-      #   }
+      vote {
+        created_at
+        id
+        post_id
+        upvote
+        username
+      }
     }
   }
 `;
