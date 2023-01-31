@@ -9,6 +9,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ADD_COMMENT } from "../../graphql/mutations";
 import { toast } from "react-hot-toast";
 import TimeAgo from "react-timeago";
+import { now } from "next-auth/client/_utils";
 
 type FormData = {
   comment: string;
@@ -51,6 +52,7 @@ function PostPage() {
         post_id: router.query.postId,
         username: session?.user?.name,
         text: data.comment,
+        created_at: new Date(),
       },
     });
 

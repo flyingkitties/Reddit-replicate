@@ -58,6 +58,7 @@ function Post({ post }: Props) {
         post_id: post.id,
         username: session?.user?.name,
         upvote: isUpvote,
+        created_at: new Date(),
       },
     });
 
@@ -78,11 +79,17 @@ function Post({ post }: Props) {
   }, [data]);
 
   const displayVotes = (data: any) => {
-    const votes: Vote[] = data?.getVotesByPostId;
+    const votes: Vote[] = data?.getVoteByPostId;
     const displayNumber = votes?.reduce(
       (total, vote) => (vote.upvote ? (total += 1) : (total -= 1)),
       0
     );
+    if (votes?.length === 0) return 0;
+
+    if (displayNumber === 0) {
+      return votes[0]?.upvote ? 1 : -1;
+    }
+    return displayNumber;
   };
 
   if (!post)
@@ -108,7 +115,9 @@ function Post({ post }: Props) {
               vote === true && "text-blue-400"
             }`}
           />
-          <p className="text-xs font-semibold text-black">0</p>
+          <p className="text-xs font-semibold text-black">
+            {displayVotes(data)}
+          </p>
           <ArrowDownIcon
             onClick={() => upVote(false)}
             className={`voteButtons hover:text-red-400 ${

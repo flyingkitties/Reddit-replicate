@@ -4,7 +4,7 @@ import Avatar from "../../components/Avatar";
 import Feed from "../../components/Feed";
 import PostBox from "../../components/PostBox";
 
-function Subreddit() {
+function SubredditTopic() {
   const {
     query: { topic },
   } = useRouter();
@@ -36,4 +36,4 @@ function Subreddit() {
   );
 }
 
-export default Subreddit;
+export default SubredditTopic;
