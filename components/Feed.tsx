@@ -15,10 +15,8 @@ function Feed({ topic }: Props) {
           topic: topic,
         },
       });
-  const posts: Post[] = !topic ? data?.getPostList : data?.getPostListByTopic;
 
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+  const posts: Post[] = !topic ? data?.getPostList : data?.getPostListByTopic;
 
   return (
     <div className="mt-5 w-full space-y-4 ">

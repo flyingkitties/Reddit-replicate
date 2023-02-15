@@ -33,8 +33,7 @@ const Home: NextPage = () => {
 
         <div
           className="sticky top-16 hover:overflow-auto mx-5 mt-7 hidden h-fit min-w-[300px]
-        rounded-md border border-gray-300 bg-white lg:inline"
-        >
+        rounded-md border border-gray-300 bg-white lg:inline">
           <p className="text-base mb-1 p-4 pb-3 font-bold">Top Comunities</p>
           <div>
             {/* subreddits list */}
