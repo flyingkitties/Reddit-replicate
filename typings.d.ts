@@ -28,7 +28,7 @@ type Post = {
   subreddit_id: number;
   title: string;
   username: string;
-  vote: Vote[];
-  comment: Comment[];
+  votes: Vote[];
+  comments: Comment[];
   subreddit: Subreddit[];
 };
