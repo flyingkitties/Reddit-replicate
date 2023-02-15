@@ -4,7 +4,7 @@
 
 @layer components {
   .icon {
-    @apply h-6 w-6 lg:w-7 lg:h-7 cursor-pointer rounded-sm  lg:hover:bg-gray-200;
+    @apply h-5 w-5  md:w-6 md:h-6 cursor-pointer rounded-sm  lg:hover:bg-gray-200;
   }
 
   .voteButtons {
@@ -12,7 +12,11 @@
   }
 
   .postButtons {
-    @apply flex items-center space-x-1 text-sm font-semibold p-2
+    @apply flex items-center space-x-1 text-sm font-semibold p-1 sm:p-2
      hover:text-gray-600 cursor-pointer;
+  }
+
+  .menuDrop {
+    @apply flex space-x-3 rounded-lg  hover:text-gray-800 cursor-pointer;
   }
 }

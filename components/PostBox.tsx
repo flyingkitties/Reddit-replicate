@@ -118,7 +118,7 @@ function PostBox({ subreddit }: Props) {
     <form
       onSubmit={onSubmit}
       className=" top-16 z-50 bg-white border rounded-md
-     border-gray-300 p-2  "
+     border-gray-300 p-2 lg:mr-5 "
     >
       <div className="flex items-center space-x-3">
         {/* Avatar */}

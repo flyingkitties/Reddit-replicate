@@ -1,23 +1,23 @@
-import { useQuery } from "@apollo/client";
 import type { NextPage } from "next";
+import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Feed from "../components/Feed";
 import Header from "../components/Header";
 import PostBox from "../components/PostBox";
 import SubredditRow from "../components/SubredditRow";
-import { GET_SUBREDDITS_WITH_LIMIT } from "../graphql/queries";
+import { GET_SUBREDDIT_LIST_LIMIT } from "../graphql/queries";
+import { gql, useQuery } from "@apollo/client";
+import { useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
-  const { data } = useQuery(GET_SUBREDDITS_WITH_LIMIT, {
+  const { data, loading, error } = useQuery(GET_SUBREDDIT_LIST_LIMIT, {
     variables: {
       limit: 10,
     },
   });
 
   const subreddits: Subreddit[] = data?.getSubredditListLimit;
-
-  console.log(subreddits);
 
   return (
     <div className=" max-w-5xl my-7 lg:mx-auto mx-5 ">
@@ -32,10 +32,10 @@ const Home: NextPage = () => {
         <Feed />
 
         <div
-          className="sticky top-36 mx-5 mt-7 hidden h-fit min-w-[300px]
+          className="sticky top-16 hover:overflow-auto mx-5 mt-7 hidden h-fit min-w-[300px]
         rounded-md border border-gray-300 bg-white lg:inline"
         >
-          <p className="text=md mb-1 p-4 pb-3 font-bold">Top Comunities</p>
+          <p className="text-base mb-1 p-4 pb-3 font-bold">Top Comunities</p>
           <div>
             {/* subreddits list */}
             {subreddits?.map((subreddit, index) => (

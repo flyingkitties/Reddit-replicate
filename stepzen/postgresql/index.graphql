@@ -43,7 +43,7 @@ Table 'subreddit' aliased as GQLName: 'Subreddit'
 type Subreddit {
   created_at: DateTime
   id: ID!
-  post: [Post] @materializer(query: "getPostUsingPost_subreddit_id_fkey")
+  # post: [Post] @materializer(query: "getPostUsingPost_subreddit_id_fkey")
   topic: String
 }
 
@@ -130,8 +130,8 @@ type Query {
   getPostByPostId(post_id: ID!): Post
     @dbquery(
       type: "postgresql"
-      schema: "public"
-      table: "post"
+      # schema: "public"
+      # table: "post"
       query: """
       select * from "public"."post"
       where "post"."id" = $1
@@ -203,7 +203,7 @@ type Query {
       configuration: "postgresql_config"
     )
 
-  getSubredditListLimit(limit: Int): [Subreddit]
+  getSubredditListLimit(limit: Int!): [Subreddit]
     @dbquery(
       type: "postgresql"
       schema: "public"
@@ -312,7 +312,12 @@ type Mutation {
       dml: DELETE
       configuration: "postgresql_config"
     )
-  insertComment(post_id: ID!, username: String!, text: String!): Comment
+  insertComment(
+    post_id: ID!
+    username: String!
+    text: String!
+    created_at: DateTime
+  ): Comment
     @dbquery(
       type: "postgresql"
       schema: "public"
@@ -431,7 +436,12 @@ type Mutation {
       dml: DELETE
       configuration: "postgresql_config"
     )
-  insertVote(post_id: ID!, username: String!, upvote: Boolean!): Vote
+  insertVote(
+    post_id: ID!
+    username: String!
+    upvote: Boolean!
+    created_at: DateTime
+  ): Vote
     @dbquery(
       type: "postgresql"
       schema: "public"

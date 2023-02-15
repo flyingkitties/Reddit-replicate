@@ -12,7 +12,7 @@ export const GET_ALL_VOTES_BY_POST_ID = gql`
   }
 `;
 
-export const GET_SUBREDDITS_WITH_LIMIT = gql`
+export const GET_SUBREDDIT_LIST_LIMIT = gql`
   query MyQuery($limit: Int!) {
     getSubredditListLimit(limit: $limit) {
       created_at
@@ -32,7 +32,7 @@ export const GET_POST_BY_POST_ID = gql`
       title
       subreddit_id
       username
-      comment {
+      comments {
         created_at
         id
         post_id
@@ -44,13 +44,12 @@ export const GET_POST_BY_POST_ID = gql`
         id
         topic
       }
-      vote {
+      votes {
         created_at
         id
         post_id
         upvote
         username
-        # delays posts loading time - error
       }
     }
   }
@@ -66,7 +65,7 @@ export const GET_ALL_POSTS = gql`
       title
       subreddit_id
       username
-      comment {
+      comments {
         created_at
         id
         post_id
@@ -78,13 +77,12 @@ export const GET_ALL_POSTS = gql`
         id
         topic
       }
-      vote {
+      votes {
         created_at
         id
         post_id
         upvote
         username
-        # gives error on main page, doesnt display any post
       }
     }
   }
@@ -100,7 +98,7 @@ export const GET_ALL_POSTS_BY_TOPIC = gql`
       title
       subreddit_id
       username
-      comment {
+      comments {
         created_at
         id
         post_id
@@ -112,7 +110,7 @@ export const GET_ALL_POSTS_BY_TOPIC = gql`
         id
         topic
       }
-      vote {
+      votes {
         created_at
         id
         post_id

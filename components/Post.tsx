@@ -70,7 +70,6 @@ function Post({ post }: Props) {
   useEffect(() => {
     const votes: Vote[] = data?.getVoteByPostId;
     //latest vote as we sorted it by newely created
-    // The problem is here
     const vote = votes?.find(
       (vote) => vote.username == session?.user?.name
     )?.upvote;
@@ -102,13 +101,11 @@ function Post({ post }: Props) {
     <Link href={`/post/${post?.id}`}>
       <div
         className=" flex bg-white cursor-pointer border border-gray-300 
-     my-2 shadow-sm rounded-md hover:border hover:border-gray-400 py-3 w-full "
-      >
+     my-2 shadow-sm rounded-md hover:border hover:border-gray-400 py-3 w-full ">
         {/* votes */}
         <div
           className="flex flex-col items-center justify-start 
-      space-y-1 rounded-l-md bg-gray-50 p-4 text-gray-400"
-        >
+      space-y-1 rounded-l-md bg-gray-50 p-4 text-gray-400">
           <ArrowUpIcon
             onClick={() => upVote(true)}
             className={`voteButtons hover:text-blue-400 ${
@@ -126,7 +123,7 @@ function Post({ post }: Props) {
           />
         </div>
 
-        <div className="p-3 pr-10 pb-1 w-full">
+        <div className="py-3 pr-12 pb-1 w-full">
           {/* header */}
           <div className="flex items-center space-x-2 pr-10 ">
             <Avatar large seed={post?.subreddit[0]?.topic} />
@@ -134,8 +131,7 @@ function Post({ post }: Props) {
               <Link href={`/subreddit/${post?.subreddit[0]?.topic}`}>
                 <span
                   className="font-bold text-black hover:text-blue-400 
-            hover:underline "
-                >
+            hover:underline ">
                   r/{post?.subreddit[0]?.topic}
                 </span>
               </Link>{" "}
@@ -144,35 +140,38 @@ function Post({ post }: Props) {
             </p>
           </div>
           {/* body */}
-          <div className="py-4">
+          <div className="py-4 ">
             <h2 className="text-xl font-semibold">{post?.title}</h2>
             <p className="mt-2 text-sm font-light ">{post?.body}</p>
           </div>
           {/* image */}
 
-          <img className="w-full" src={post?.image} alt="" />
+          <img className="w-full pr-2" src={post?.image} alt="" />
 
           {/* footer */}
           <div className="flex space-x-4 text-gray-400 py-2 ">
             <div className="postButtons ">
-              <ChatBubbleLeftIcon className="h-6 w-6" />
-              <p className="">{post?.comment.length} Comments</p>
+              <ChatBubbleLeftIcon className="icon" />
+              <p className="text-xs ">
+                {post?.comments.length}
+                <span className="hidden lg:inline"> Comments</span>
+              </p>
             </div>
 
             <div className="postButtons ">
-              <GiftIcon className="h-6 w-6" />
-              <p className="hidden lg:inline">Award</p>
+              <GiftIcon className="icon" />
+              <p className="hidden text-xs lg:inline">Award</p>
             </div>
             <div className="postButtons ">
-              <ShareIcon className="h-6 w-6" />
-              <p className="hidden lg:inline">Share</p>
+              <ShareIcon className="icon" />
+              <p className="hidden text-xs lg:inline">Share</p>
             </div>
             <div className="postButtons ">
-              <BookmarkIcon className="h-6 w-6" />
-              <p className="hidden lg:inline">Save</p>
+              <BookmarkIcon className="icon" />
+              <p className="hidden text-xs lg:inline">Save</p>
             </div>
             <div className="postButtons ">
-              <EllipsisHorizontalIcon className="h-6 w-6" />
+              <EllipsisHorizontalIcon className="icon" />
             </div>
           </div>
         </div>
