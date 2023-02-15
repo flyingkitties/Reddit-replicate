@@ -1,16 +1,15 @@
-type Comment = {
-  created_at: string;
-  id: number;
-
-  text: string;
-  username: string;
-};
-
 type Vote = {
   created_at: string;
   id: number;
-
+  post_id: number;
   upvote: boolean;
+  username: string;
+};
+type Comment = {
+  created_at: string;
+  id: number;
+  post_id: number;
+  text: string;
   username: string;
 };
 
@@ -20,7 +19,7 @@ type Subreddit = {
   topic: string;
 };
 
-type Post = {
+export type PostType = {
   body: string;
   created_at: string;
   id: number;
