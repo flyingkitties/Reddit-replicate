@@ -124,7 +124,7 @@ function Header() {
       </div>
 
       {/* Search box */}
-      <div className="flex sm:hidden w-[150px]"></div>
+      <div className="flex sm:hidden w-[170px]"></div>
       <form
         className="hidden sm:inline-flex flex-1 items-center border border-gray-200 rounded-lg lg:min-w-[400px]
         bg-gray-100 px-3 py-1  "
@@ -247,7 +247,7 @@ function Header() {
       ) : (
         <div
           onClick={() => signIn()}
-          className="flex items-center space-x-3 border rounded-full
+          className="flex items-center space-x-3  rounded-full
        p-2 cursor-pointer ">
           <div className="relative h-6 w-6 shrink-0">
             <Image alt="" fill src="https://links.papareact.com/23l" />
