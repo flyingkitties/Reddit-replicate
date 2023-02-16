@@ -54,9 +54,11 @@ function Header() {
         <Link href="/">
           <Image
             alt=""
+            fill
             objectFit="contain"
+            // width={80}
+            // height={80}
             src="https://logos-world.net/imageup/Reddit/Reddit-Logo-PNG5.png"
-            layout="fill"
           />
         </Link>
       </div>
@@ -224,7 +226,12 @@ function Header() {
           className="flex items-center space-x-3 border  border-gray-100 rounded-full
        p-2 bg-gray-100 cursor-pointer ">
           <div className="relative h-6 w-6 flex-shrink-0 ">
-            <Image alt="" layout="fill" src="https://links.papareact.com/23l" />
+            <Image
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw"
+              src="https://links.papareact.com/23l"
+            />
           </div>
           <div className="">
             <div className="hidden lg:inline  ">
