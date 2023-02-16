@@ -106,7 +106,7 @@ function Post({ post }: Props) {
         {/* votes */}
         <div
           className="flex flex-col items-center justify-start 
-      space-y-1 rounded-l-md bg-gray-50 p-4 text-gray-400">
+      space-y-1 rounded-l-md p-4 text-gray-400">
           <ArrowUpIcon
             onClick={() => upVote(true)}
             className={`voteButtons hover:text-blue-400 ${

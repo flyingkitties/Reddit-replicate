@@ -55,9 +55,7 @@ function Header() {
           <Image
             alt=""
             fill
-            objectFit="contain"
-            // width={80}
-            // height={80}
+            sizes="(max-width: 600px) 100vw"
             src="https://logos-world.net/imageup/Reddit/Reddit-Logo-PNG5.png"
           />
         </Link>
@@ -249,10 +247,10 @@ function Header() {
       ) : (
         <div
           onClick={() => signIn()}
-          className="flex items-center space-x-3 border  border-gray-100 rounded-full
-       p-2 bg-gray-100 cursor-pointer ">
+          className="flex items-center space-x-3 border rounded-full
+       p-2 cursor-pointer ">
           <div className="relative h-6 w-6 shrink-0">
-            <Image alt="" layout="fill" src="https://links.papareact.com/23l" />
+            <Image alt="" fill src="https://links.papareact.com/23l" />
           </div>
           <p className="hidden sm:inline-flex text-xs md:text-sm w-full p-1.5 rounded-full bg-blue-400 text-white ">
             Sign In
