@@ -67,7 +67,7 @@ function Header() {
             onClick={handleHomeOpen}
             className="flex w-full justify-center ">
             {!homeOpen ? (
-              <div className="flex md:space-x-1">
+              <div className="flex md:space-x-1 md:pt-1 ">
                 <HomeIcon className="h-5 w-5 " />
                 <p className="flex-1 ml-2 hidden md:inline ">Home</p>
                 <ChevronDownIcon className="h-5 w-5 pt-1 " />
@@ -155,9 +155,9 @@ function Header() {
         <div className="relative inline-block text-left">
           <button
             onClick={handleOpen}
-            className="inline-flex w-full justify-center ">
+            className="inline-flex w-full justify-center pt-2 ">
             {!open ? (
-              <Bars3Icon className="h-6 w-6 lg:w-7 lg:h-7 cursor-pointer" />
+              <Bars3Icon className="h-6 w-6 lg:w-7 lg:h-7 cursor-pointer " />
             ) : (
               <XMarkIcon className="h-6 w-6 lg:w-7 lg:h-7 cursor-pointer" />
             )}
