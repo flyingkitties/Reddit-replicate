@@ -18,9 +18,10 @@ import { toast } from "react-hot-toast";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_ALL_VOTES_BY_POST_ID } from "../graphql/queries";
 import { ADD_VOTE } from "../graphql/mutations";
+import { PostType, Vote } from "../typings";
 
 type Props = {
-  post: Post;
+  post: PostType;
 };
 
 function Post({ post }: Props) {

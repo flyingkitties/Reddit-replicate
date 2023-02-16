@@ -9,6 +9,7 @@ import SubredditRow from "../components/SubredditRow";
 import { GET_SUBREDDIT_LIST_LIMIT } from "../graphql/queries";
 import { gql, useQuery } from "@apollo/client";
 import { useSession } from "next-auth/react";
+import { Subreddit } from "../typings";
 
 const Home: NextPage = () => {
   const { data, loading, error } = useQuery(GET_SUBREDDIT_LIST_LIMIT, {
